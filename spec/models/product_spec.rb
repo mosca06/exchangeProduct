@@ -38,4 +38,19 @@ RSpec.describe Product do
       expect(result).to eq(params)
     end
   end
+
+  context '.search' do
+    it "return the searched objects" do
+      Product.reset_data_set  
+      funko1 = Product.new(name: "Funko", price: 50)
+      funko2 = Product.new(name: "Funko2", price: 500)
+      funko3 = Product.new(name: "Funko3", price: 100)
+
+      result1 = Product.search(5)
+      result2 = Product.search('o')
+
+      expect(result1).to eq([funko1,funko2])
+      expect(result2).to eq([funko1,funko2,funko3])
+    end
+  end
 end

@@ -7,6 +7,8 @@ class App
     Product.all.first.as_json
     # {name: "funko", price: 50}
 
+    Product.search(5)
+    Product.search('o')
     'running'
   end
 end
