@@ -27,4 +27,15 @@ RSpec.describe Product do
       expect(result).to include(funko1,funko2,funko3)
     end
   end
+
+  context '#as_json' do
+    it "return the object as json" do
+      params = {name: "Funko", price: 50}
+      funko1 = Product.new(**params)
+
+      result = funko1.as_json
+
+      expect(result).to eq(params)
+    end
+  end
 end

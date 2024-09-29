@@ -4,7 +4,8 @@ class App
     Product.new(name: "Funko2", price: 500)
     Product.new(name: "Funko3", price: 100)
 
-    Product.all
+    Product.all.first.as_json
+    # {name: "funko", price: 50}
 
     'running'
   end
