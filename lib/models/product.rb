@@ -38,11 +38,11 @@ class Product
   
 
   def values
-   self.instance_variables.map { |var| self.instance_variable_get(var) }
+    self.instance_variables.map { |var| self.instance_variable_get(var) }
   end
 
   def keys
-    self.instance_variables.map {|var| var.to_s.delete('@').to_sym}
+    self.instance_variables.map { |var| var.to_s.delete('@').to_sym }
   end
 
   def self.reset_data_set
