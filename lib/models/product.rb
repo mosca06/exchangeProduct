@@ -1,9 +1,7 @@
-require_relative 'searcheable'
-require_relative 'jsonable'
 class Product
   extend Searcheable
   include Jsonable
-  
+
   @@data_set = []
   attr_accessor :name, :price
 
