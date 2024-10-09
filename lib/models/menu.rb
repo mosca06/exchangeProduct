@@ -51,7 +51,7 @@ class Menu
 
   def all
     products = Product.all
-    products.each { |product| puts product.as_json}
+    puts products
   end
 
   def new

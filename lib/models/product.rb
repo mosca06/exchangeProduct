@@ -3,16 +3,16 @@ class Product
   include Jsonable
 
   @@data_set = []
-  attr_accessor :name, :price
+  attr_accessor :id, :name, :price
 
-  def initialize(name: nil, price: nil)
+  def initialize( name: nil, price: nil)
     @name = name
     @price = price
-    @@data_set << self
+    Database.add_item(self.as_json, 'product')
   end
 
   def self.all
-    @@data_set
+    Database.all("product")
   end
 
   def values
