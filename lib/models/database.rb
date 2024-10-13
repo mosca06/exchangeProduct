@@ -8,12 +8,16 @@ class Database
     end
   end
 
-  def self.all(database)
-    all_itens = []
-    File.readlines(file_path(database)).each do |line|
-      all_itens << eval(line)
+  def self.delete_item(id, database)
+    all_items = File.readlines(file_path(database)).select { |line| eval(line)[:id] != id }
+    File.open(file_path(database), 'w') do |file|
+      all_items.each { |item| file.puts(item) }
     end
-    all_itens
+  end
+
+  def self.all(database)
+     all_items = File.readlines(file_path(database)).map { |line| eval(line) }
+     all_items
   end
 
   private 
@@ -30,12 +34,12 @@ class Database
   def self.file_path(database)
     path = "lib/database/#{database}.csv"
     create_path(path) unless File.exist?(path)
-
     path
   end
 
   def self.create_path(path)
     File.new(path, "w")
   end
+
 
 end

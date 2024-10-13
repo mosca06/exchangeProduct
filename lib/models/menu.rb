@@ -4,7 +4,8 @@ class Menu
       0 => { label: 'exit', action: -> {} },
       1 => { label: 'new', action: -> { new } },
       2 => { label: 'all', action: -> { all } },
-      3 => { label: 'search', action: -> { search } }
+      3 => { label: 'search', action: -> { search } },
+      4 => { label: 'delete' , action: -> { delete } }
     }
   end
 
@@ -66,7 +67,13 @@ class Menu
     puts "Search: "
     search = gets.chomp
     products = Product.search(search)
-    products.each { |product| puts product.as_json}
+    products.each { |product| puts product}
+  end
+
+  def delete
+    puts "Delete item id: "
+    id_to_delete = gets.chomp.to_i
+    Database.delete_item(id_to_delete, 'product')
   end
 
 end

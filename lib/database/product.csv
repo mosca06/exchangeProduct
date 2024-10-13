@@ -1,3 +1,15 @@
-{:id=>1, :name=>"Funko", :price=>50}
 {:id=>2, :name=>"Funko", :price=>500}
 {:id=>3, :name=>"Funko", :price=>100}
+{:id=>4, :name=>"Funko", :price=>50}
+{:id=>5, :name=>"Funko", :price=>500}
+{:id=>6, :name=>"Funko", :price=>100}
+{:id=>7, :name=>"Funko", :price=>50}
+{:id=>8, :name=>"Funko", :price=>500}
+{:id=>9, :name=>"Funko", :price=>100}
+{:id=>11, :name=>"Funko", :price=>500}
+{:id=>12, :name=>"Funko", :price=>100}
+{:id=>13, :name=>"Funko", :price=>50}
+{:id=>14, :name=>"Funko", :price=>500}
+{:id=>15, :name=>"Funko", :price=>100}
+{:id=>16, :name=>"Funko", :price=>50}
+{:id=>17, :name=>"Funko", :price=>500}
