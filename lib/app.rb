@@ -1,8 +1,9 @@
 require_relative 'models/searcheable'
 require_relative 'models/jsonable'
+require_relative 'models/record'
 require_relative 'models/product'
 require_relative 'models/menu'
-require_relative 'models/database'
+
 class App
  
   def self.call

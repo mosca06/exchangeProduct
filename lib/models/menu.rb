@@ -73,7 +73,7 @@ class Menu
   def delete
     puts "Delete item id: "
     id_to_delete = gets.chomp.to_i
-    Database.delete_item(id_to_delete, 'product')
+    Record.delete_item(id_to_delete, 'product')
   end
 
 end
