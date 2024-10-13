@@ -8,7 +8,11 @@ class Product
   def initialize( name: nil, price: nil)
     @name = name
     @price = price
-    Database.add_item(self.as_json, 'product')
+  end
+
+  def self.create(name: nil , price: nil)
+    product = new(name:, price:)
+    Database.add_item(product.as_json, 'product')
   end
 
   def self.all

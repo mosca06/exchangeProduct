@@ -60,7 +60,7 @@ class Menu
     name = gets.chomp
     puts "Price of product: "
     price = gets.chomp.to_i
-    Product.new(name: name, price: price)
+    Product.create(name: name, price: price)
   end
 
   def search
