@@ -14,3 +14,5 @@
 {:id=>16, :name=>"Funko", :price=>50}
 {:id=>17, :name=>"Funko", :price=>500}
 {:id=>18, :name=>"Teste3", :price=>123456}
+{:id=>19, :name=>"fucionando", :price=>1111}
+{:id=>20, :name=>"newnew", :price=>123654}

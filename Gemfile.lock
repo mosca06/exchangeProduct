@@ -1,7 +1,9 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    date (3.3.4)
     diff-lcs (1.5.1)
+    pg (1.5.8)
     rspec (3.13.0)
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
@@ -15,12 +17,16 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-support (3.13.1)
+    yaml (0.3.0)
 
 PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  date
+  pg
   rspec
+  yaml
 
 BUNDLED WITH
    2.3.3

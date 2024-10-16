@@ -1,3 +1,6 @@
+require_relative 'bin/database'
+require_relative 'models/postgres_exchanger'
+require_relative 'models/csv_exchanger'
 require_relative 'models/searcheable'
 require_relative 'models/jsonable'
 require_relative 'models/record'

@@ -5,7 +5,8 @@ class Menu
       1 => { label: 'new', action: -> { new } },
       2 => { label: 'all', action: -> { all } },
       3 => { label: 'search', action: -> { search } },
-      4 => { label: 'delete' , action: -> { delete } }
+      4 => { label: 'delete' , action: -> { delete } },
+      5 => { label: 'search_by_id' , action: -> { get } }
     }
   end
 
@@ -64,16 +65,23 @@ class Menu
   end
 
   def search
-    puts "Search: "
-    search = gets.chomp
-    products = Product.search(search)
+    puts "Search Term: "
+    search_term = gets.chomp
+    products = Product.search(search_term)
     products.each { |product| puts product}
+  end
+
+  def get
+    puts "Item ID: "
+    item_id = gets.chomp.to_i
+    puts  Product.get_item_by_id(item_id)
   end
 
   def delete
     puts "Delete item id: "
     id_to_delete = gets.chomp.to_i
-    Record.delete_item(id_to_delete, 'product')
+    result = Product.delete(id_to_delete)
+    puts result > 0 ? "Deleted with success" : "Register Not Found"
   end
 
 end
