@@ -4,7 +4,8 @@ class PostgresExchanger
     sql = "
         INSERT INTO #{table_name}(#{kwargs.keys.join(', ')})
         VALUES(#{kwargs.values.map{ |value| "'#{value}'"}.join(', ')})
-        RETURNING id;
+        RETURNING id
+        ;
       "
     result = Database.excecute_sql(sql)
     id = result[0]['id'].to_i
@@ -17,13 +18,15 @@ class PostgresExchanger
     sql = "
       DELETE FROM #{table_name} 
       WHERE id = #{id}
+      ;
     "
     Database.excecute_sql(sql).cmd_tuples
   end
 
   def self.all
     sql = "
-      SELECT * FROM #{table_name}
+      SELECT * FROM #{table_name} ORDER BY id
+      ;
     "
     Database.excecute_sql(sql).to_a
   end
@@ -33,8 +36,20 @@ class PostgresExchanger
       SELECT * 
       FROM #{table_name}
       WHERE id = #{id}
+      ;      
     "
     Database.excecute_sql(sql).to_a[0]
+  end
+
+  def self.update(**kwargs)
+    sql = "
+      UPDATE #{table_name}
+      SET #{kwargs[:column_name]} = #{kwargs[:new_value]}
+      WHERE id = #{kwargs[:id]}
+      ;
+    "
+    result = Database.excecute_sql(sql)
+    binding.irb
   end
 
   def self.table_name
@@ -45,7 +60,8 @@ class PostgresExchanger
     sql = "
       SELECT column_name 
       FROM information_schema.columns
-      WHERE table_name = '#{table_name}';
+      WHERE table_name = '#{table_name}'
+      ;
     "
     Database.excecute_sql(sql).map { |column| column['column_name'] }
   end

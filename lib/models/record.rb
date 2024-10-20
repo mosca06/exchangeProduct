@@ -14,6 +14,10 @@ class Record < PostgresExchanger
     super(arg)
   end
 
+  def self.update(**kwargs)
+    super(**kwargs)
+  end
+
   def self.all
      super
   end

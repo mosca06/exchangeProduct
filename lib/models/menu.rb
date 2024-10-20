@@ -6,7 +6,8 @@ class Menu
       2 => { label: 'all', action: -> { all } },
       3 => { label: 'search', action: -> { search } },
       4 => { label: 'delete' , action: -> { delete } },
-      5 => { label: 'search_by_id' , action: -> { get } }
+      5 => { label: 'search_by_id' , action: -> { get } },
+      6 => { label: 'update' , action: -> { update } }
     }
   end
 
@@ -82,6 +83,20 @@ class Menu
     id_to_delete = gets.chomp.to_i
     result = Product.delete(id_to_delete)
     puts result > 0 ? "Deleted with success" : "Register Not Found"
+  end
+
+  def update
+    puts "Update item id: "
+    id_to_update = gets.chomp.to_i
+
+    puts "Which Column?: "
+    columns = Product.columns_name.select{ |value, index| value != "id"}
+    columns.each_with_index { |value, index| puts "#{index}: #{value}" }
+    column_id = gets.chomp.to_i
+
+    puts "New Value? "
+    new_value = gets.chomp
+    Product.update(id: id_to_update, column_name: columns[column_id], new_value: new_value)
   end
 
 end
