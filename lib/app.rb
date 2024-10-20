@@ -1,3 +1,7 @@
+require_relative 'queries/application_query'
+require_relative 'services/application_service'
+require_relative 'queries/products/search_query'
+require_relative 'services/search_service'
 require_relative 'bin/database'
 require_relative 'models/postgres_exchanger'
 require_relative 'models/csv_exchanger'
@@ -17,6 +21,7 @@ class App
 
     Menu.call
     "running"
+
   end
     
 end

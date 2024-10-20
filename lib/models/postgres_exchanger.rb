@@ -7,7 +7,7 @@ class PostgresExchanger
         RETURNING id
         ;
       "
-    result = Database.excecute_sql(sql)
+    result = Database.execute_sql(sql)
     id = result[0]['id'].to_i
     object = self.new(**kwargs)
     object.id = id
@@ -20,15 +20,15 @@ class PostgresExchanger
       WHERE id = #{id}
       ;
     "
-    Database.excecute_sql(sql).cmd_tuples
+    Database.execute_sql(sql).cmd_tuples
   end
-
+ 
   def self.all
     sql = "
       SELECT * FROM #{table_name} ORDER BY id
       ;
     "
-    Database.excecute_sql(sql).to_a
+    Database.execute_sql(sql).to_a
   end
 
   def self.get_item_by_id(id)
@@ -38,7 +38,7 @@ class PostgresExchanger
       WHERE id = #{id}
       ;      
     "
-    Database.excecute_sql(sql).to_a[0]
+    Database.execute_sql(sql).to_a[0]
   end
 
   def self.update(**kwargs)
@@ -48,7 +48,7 @@ class PostgresExchanger
       WHERE id = #{kwargs[:id]}
       ;
     "
-    result = Database.excecute_sql(sql)
+    result = Database.execute_sql(sql)
     binding.irb
   end
 
@@ -63,6 +63,6 @@ class PostgresExchanger
       WHERE table_name = '#{table_name}'
       ;
     "
-    Database.excecute_sql(sql).map { |column| column['column_name'] }
+    Database.execute_sql(sql).map { |column| column['column_name'] }
   end
 end

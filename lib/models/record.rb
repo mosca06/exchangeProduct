@@ -1,6 +1,6 @@
 class Record < PostgresExchanger
   include Jsonable
-  extend Searcheable
+  # extend Searcheable
 
   def self.create(**kwargs)
    super(**kwargs)

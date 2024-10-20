@@ -6,4 +6,8 @@ class Product < Record
     @name = name
     @price = price
   end
+
+  def self.search(search_term)
+    SearchService.call(search_term, Database, Products::SearchQuery)
+  end
 end

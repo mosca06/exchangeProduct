@@ -7,7 +7,7 @@ class Database
   def initialize
   end
 
-  def self.excecute_sql(sql)
+  def self.execute_sql(sql)
     result = connection.exec(sql)
     connection&.close
     result
@@ -23,7 +23,7 @@ class Database
     )
   #       created_at date NOT NULL,
   #       updated_at date NOT NULL
-    excecute_sql(sql)
+    execute_sql(sql)
   end
 
   def self.connection
