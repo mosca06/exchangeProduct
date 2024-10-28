@@ -53,7 +53,7 @@ class PostgresExchanger
   end
 
   def self.table_name
-    self.to_s.downcase
+    self.to_s.downcase << 's'
   end
 
   def self.columns_name

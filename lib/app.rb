@@ -1,3 +1,4 @@
+require_relative 'models/validatable'
 require_relative 'queries/application_query'
 require_relative 'services/application_service'
 require_relative 'queries/products/search_query'

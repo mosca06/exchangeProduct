@@ -1,9 +1,10 @@
 class Record < PostgresExchanger
   include Jsonable
+  include Validatable
   # extend Searcheable
 
-  def self.create(**kwargs)
-   super(**kwargs)
+  def self.create(**kwargs) 
+    super(**kwargs)
   end
 
   def self.delete(id)
